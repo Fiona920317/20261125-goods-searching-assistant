@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="搜尋並比較虛擬商城的精選商品" />
+    <title>好物雷達｜跨店商品搜尋</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./"
+          ><span class="brand-mark" aria-hidden="true">◎</span> 好物雷達</a
+        ><button id="open-cart" class="cart-button" type="button">
+          購物車 <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">跨店選物</p>
+          <h1>想找什麼好物？</h1>
+          <p class="hero-description">
+            輸入想找的商品，同一頁比較多家虛擬店家的價格與評分。
+          </p>
+          <form id="search-form" class="search-form">
+            <label class="sr-only" for="search-input">商品關鍵字</label
+            ><input
+              id="search-input"
+              type="search"
+              maxlength="200"
+              placeholder="搜尋商品，例如：舊主機壞了，想買一台新的"
+            /><button type="submit">搜尋商品</button>
+          </form>
+          <div id="categories" class="categories" aria-label="商品分類"></div>
+        </div>
+      </section>
+      <section class="results" aria-labelledby="results-title">
+        <div class="results-header">
+          <div>
+            <h2 id="results-title" tabindex="-1">精選好物</h2>
+            <p id="result-count" role="status"></p>
+          </div>
+          <div class="results-actions">
+            <button
+              id="refresh-products"
+              class="refresh-products"
+              type="button"
+              hidden
+            >
+              刷新商品</button
+            ><label class="sort-label"
+              >排序
+              <select id="sort">
+                <option value="featured">推薦順序</option>
+                <option value="price">價格低到高</option>
+                <option value="rating">評分高到低</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <button id="store-back" class="store-back" type="button" hidden>
+          返回跨店比較
+        </button>
+        <div id="active-filter" class="active-filter" hidden>
+          <span id="filter-text"></span
+          ><button id="clear-filter" type="button">清除篩選</button>
+        </div>
+        <div id="product-grid" class="product-grid"></div>
+        <p id="empty-results" class="empty-results" hidden>
+          找不到符合條件的商品。試試其他關鍵字，或清除篩選。
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      好物雷達 · 商品、平台、價格與評分皆為模擬資料
+    </footer>
+    <button
+      id="toggle-helper"
+      class="helper-toggle"
+      type="button"
+      aria-controls="helper"
+      aria-expanded="false"
+    >
+      <span aria-hidden="true">✦</span> 搜尋小幫手
+    </button>
+    <section id="helper" class="helper" aria-labelledby="helper-title" hidden>
+      <div class="helper-header">
+        <h2 id="helper-title">搜尋小幫手</h2>
+        <button id="close-helper" type="button" aria-label="關閉搜尋小幫手">
+          ×
+        </button>
+      </div>
+      <div id="chat-log" class="chat-log" role="log" aria-live="polite"></div>
+      <div id="chat-options" class="chat-options"></div>
+      <form id="chat-form" class="chat-form">
+        <label class="sr-only" for="chat-input">輸入你的需求</label
+        ><input
+          id="chat-input"
+          placeholder="輸入你的需求"
+          maxlength="200"
+          required
+        /><button type="submit">送出</button>
+      </form>
+    </section>
+    <dialog id="cart">
+      <div class="cart-heading">
+        <h2>我的購物車</h2>
+        <form method="dialog"><button aria-label="關閉購物車">×</button></form>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-total">
+        <strong>商品小計</strong><strong id="cart-total"></strong>
+      </div>
+    </dialog>
+    <p id="cart-status" class="sr-only" role="status"></p>
+    <script src="./js/art.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

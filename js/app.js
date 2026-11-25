@@ -366,7 +366,7 @@ function ShowGeneratedProducts(item,detail,budget) {
     return {
       id:"sim-"+signature+"-"+index,
       name:BuildProductName(item,detail,isBundle),
-      store:item+"・"+stores[storeIndex],
+      store:stores[storeIndex],
       category:CATEGORIES[0],
       kind:"generated",
       detail:detail || "虛擬商品",
